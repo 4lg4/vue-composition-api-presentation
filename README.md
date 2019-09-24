@@ -1,21 +1,12 @@
-# vue-function-presentation
-
+# vue-functional-presentation
+> presentation, vue basics and functional programming
+ 
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run local
 ```
 npm run serve
-```
-
-### Compiles and minify for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
