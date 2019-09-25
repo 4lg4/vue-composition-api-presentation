@@ -1,48 +1,37 @@
 <template>
   <div id="app">
-    <h1>Reactivity</h1>
-
-    <div class="block">
-      <h3>Vanilla HTML</h3>
-
-      <input v-model="inputValue" />
-      <h4>{{ inputValue }}</h4>
-    </div>
-
-    <div class="block">
-      <h3>Element UI components</h3>
-
-      <el-input v-model="inputValue"></el-input> <br><br>
-      <el-tag>{{ inputValue }}</el-tag>
-    </div>
-
-    <div class="block">
+    <div>
       <el-switch
-        v-model="showUsedData"
-        active-color="#13ce66"
-        inactive-color="#ff4949"
-        active-text="Show used data"
+              v-model="isFunctional"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+              active-text="Functional"
+              inactive-text="V2"
       >
       </el-switch>
-
-      <pre v-if="showUsedData">{{ $data }}</pre>
     </div>
+
+    <functional v-if="isFunctional"></functional>
+    <V2 v-if="!isFunctional"></V2>
   </div>
 </template>
 
 <script>
+import Functional from '@/components/functional.vue';
+import V2 from '@/components/v2.vue';
+
 export default {
   name: 'app',
+  components: { Functional, V2 },
   data() {
     return {
-      showUsedData: false,
-      inputValue: 'test',
+      isFunctional: false,
     };
   },
 }
 </script>
 
-<style scoped>
+<style>
 * {
   -webkit-overflow-scrolling: touch;
   outline: none;
@@ -55,7 +44,9 @@ html, body {
   margin: 0;
   padding: 0;
 }
+</style>
 
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -63,16 +54,5 @@ html, body {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-.block {
-  border-radius: 4px;
-  margin: 50px;
-  padding: 30px;
-  background-color: #f5f5f5;
-}
-
-.block pre {
-  text-align: left;
 }
 </style>

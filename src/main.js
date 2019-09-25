@@ -7,6 +7,9 @@ import ElUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElUI);
 
+import VueCompositionApi from '@vue/composition-api';
+Vue.use(VueCompositionApi);
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')
